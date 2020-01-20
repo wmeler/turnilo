@@ -44,7 +44,6 @@
     "watch:test:common": "npm run test:common -- --watch --watch-extensions ts,tsx",
     "watch:test:client": "npm run test:client -- --watch --watch-extensions ts,tsx",
     "watch:test:server": "npm run test:server -- --watch --watch-extensions ts,tsx",
-    "test-watcher": "mocha --require ./test/setup/mocha.js --watch --watch-extensions ts,tsx",
     "start": "./bin/turnilo",
     "start:dev": "NODE_ENV=dev-hmr ./bin/turnilo",
     "build": "npm run clean && npm run tsc -- -p src/server/tsconfig.json && webpack --config config/webpack.prod.js",
@@ -98,6 +97,7 @@
   "devDependencies": {
     "@babel/core": "7.7.2",
     "@babel/preset-env": "7.7.1",
+    "@cypress/webpack-preprocessor": "4.1.1",
     "@types/body-parser": "1.16.8",
     "@types/chai": "4.2.7",
     "@types/chai-datetime": "0.0.33",
