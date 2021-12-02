@@ -49,7 +49,7 @@ export class TimeMonitor {
     return this;
   }
 
-  private doCheck = ({ name }: TimeTag): Promise<void> => {
+  private doCheck = ({name,time}: TimeTag): Promise<void> => {
     const { logger, checks } = this;
     const check = checks.get(name);
     if (!check) return Promise.resolve(null);
@@ -58,6 +58,7 @@ export class TimeMonitor {
       this.timekeeper = this.timekeeper.updateTime(name, updatedTime);
     }).catch(e => {
         logger.error(`Error getting time for '${name}': ${e.message}`);
+        this.timekeeper = this.timekeeper.updateTime(name, time);
       }
     );
   }
