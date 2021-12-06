@@ -66,7 +66,7 @@ export class TimeMonitor {
   private isStale = (timeTag: TimeTag): boolean => {
     const { timekeeper, regularCheckInterval } = this;
     const now = timekeeper.now().valueOf();
-    return !timeTag.time || now - timeTag.updated.valueOf() > regularCheckInterval;
+    return !timeTag.time || now - timeTag.lastChecked.valueOf() > regularCheckInterval;
   }
 
   private doChecks = (): void => {
